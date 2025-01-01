@@ -8,9 +8,17 @@ function showElementById(elementId){
     element.classList.remove('hidden');
 }
 
+function setBgColorById(elementId){
+    const element = document.getElementById(elementId);
+    console.log(element.classList);
+    element.classList.add('bg-orange-400');
+}
+
 function generateRandomAlphabet(){
-    const alphabetString = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+
+    const alphabetString = 'abcdefghijklmnopqrstuvwxyz';
     const alphabets = alphabetString.split('');
+
     const randomNumber = Math.random()*25;
     const index = Math.round(randomNumber);
 
