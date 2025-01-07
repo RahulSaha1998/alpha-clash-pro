@@ -7,6 +7,28 @@
 //     showPlayGround.classList.remove('hidden');
 // }
 
+function handleKeyboardPress(event) {
+    const playerPressed = event.key;
+
+    //get the expected alphabet
+    const currentAlphabetElement = document.getElementById('current-alphabet');
+    const currentAlphabet = currentAlphabetElement.innerText;
+    const expectedAlphabet = currentAlphabet.toLowerCase();
+    // console.log(expectedAlphabet, playerPressed);
+
+    // compare the player pressed key with the expected alphabet
+    if (playerPressed === expectedAlphabet) {
+        console.log('Correct');
+        continueGame();
+    }
+    else {
+        console.log('Wrong');
+    }
+}
+
+//capture keyboard key press
+document.addEventListener('keyup', handleKeyboardPress)
+
 function continueGame() {
     //generate a random alphabet
     const alphabet = generateRandomAlphabet();
@@ -15,7 +37,7 @@ function continueGame() {
     //set randomly alphabet to the screen
     const currentAlphabetElement = document.getElementById('current-alphabet');
     currentAlphabetElement.innerText = alphabet;
-    
+
     //set background color
     setBgColorById(alphabet);
 }
