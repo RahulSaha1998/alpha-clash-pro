@@ -19,7 +19,16 @@ function handleKeyboardPress(event) {
     // compare the player pressed key with the expected alphabet
     if (playerPressed === expectedAlphabet) {
         console.log('Correct');
+
+        //update score
+        const currentScoreElement = document.getElementById('current-score');
+        const currentScore = parseInt(currentScoreElement.innerText);
+        const newScore = currentScore + 1;
+        currentScoreElement.innerText = newScore;
+
+        //start new round
         continueGame();
+        removeBgColorById(expectedAlphabet);
     }
     else {
         console.log('Wrong');
