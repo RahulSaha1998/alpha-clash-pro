@@ -21,10 +21,15 @@ function handleKeyboardPress(event) {
         console.log('Correct');
 
         //update score
-        const currentScoreElement = document.getElementById('current-score');
-        const currentScore = parseInt(currentScoreElement.innerText);
+        // const currentScoreElement = document.getElementById('current-score');
+        // const currentScore = parseInt(currentScoreElement.innerText);
+        // const newScore = currentScore + 1;
+        // currentScoreElement.innerText = newScore;
+
+        const currentScore = getTextElementValueById('current-score');
         const newScore = currentScore + 1;
-        currentScoreElement.innerText = newScore;
+        setTextElementValueById('current-score', newScore);
+
 
         //start new round
         continueGame();
@@ -32,6 +37,23 @@ function handleKeyboardPress(event) {
     }
     else {
         console.log('Wrong');
+        const currentLifeElement = getTextElementValueById('current-life');
+        const newLife = currentLifeElement - 1;
+        setTextElementValueById('current-life', newLife);
+
+        if (newLife === 0) {
+            gameOver();
+
+        }
+
+
+
+        //end the game
+        // const currentLifeElement = document.getElementById('current-life');c
+        // const currentLife = parseInt(currentLifeElement.innerText);
+        // const newLife = currentLife - 1;
+        // currentLifeElement.innerText = newLife;
+
     }
 }
 
@@ -52,7 +74,19 @@ function continueGame() {
 }
 
 function play() {
+    //hide home screen and show play ground
     hideElementById('home-screen');
+    hideElementById('final-score');
     showElementById('play-ground');
+
+    //reset score and life
+    setTextElementValueById('current-life', 3);
+    setTextElementValueById('current-score', 0);
+
     continueGame();
+}
+
+function gameOver() {
+    hideElementById('play-ground');
+    showElementById('final-score');
 }

@@ -25,7 +25,7 @@
                 <button onclick="play()" class="btn bg-white text-black hover:text-white">Play Now</button>
             </div>
         </section>
-         <!-- Play Ground -->
+        <!-- Play Ground -->
         <section id="play-ground" class="play-ground hidden">
             <div class="flex flex-col items-center gap-20 pt-20">
                 <!-- Screen -->
@@ -81,7 +81,7 @@
                     <button class="btn rounded-full bg-purple-700 text-white px-4">
                         Life
                         <img src="images/Group 23.png" alt="">
-                        <span>1</span>
+                        <span id="current-life">3</span>
                     </button>
                     <button class="btn rounded-full bg-purple-700 text-white px-4">
                         Score
@@ -91,14 +91,15 @@
                 </div>
             </div>
         </section>
-         <!-- Final Scorer -->
-        <section class="score flex justify-center items-center min-h-screen hidden">
+        <!-- Final Scorer -->
+        <section id="final-score" class="score flex justify-center items-center min-h-screen hidden">
             <div class="text-white text-center space-y-6 bg-[#FFFFFF33] p-6 rounded-lg">
+                <h4 class="text-3xl">Game Over</h4>
                 <h1 class="text-8xl">
                     <span class="font-extrabold">Score:</span>
                     <span>14</span>
                 </h1>
-                <button class="btn">Play Again</button>
+                <button onclick="play()" class="btn">Play Again</button>
                 <p>Practice makes you a pro</p>
             </div>
         </section>
